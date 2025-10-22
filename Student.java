@@ -26,6 +26,7 @@ public class Student {
        .map((name)->name.name)
        .collect(Collectors.toList());
        System.out.println(newList);
+       System.out.println("New Delhi");
         };
     }
 }
