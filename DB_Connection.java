@@ -37,7 +37,7 @@ public class DB_Connection {
         if(insertedData>0) {  
             System.out.println("Student Details Saved Successfully");
         }
-        System.out.println("This is a java Project and DB Connection code")
+        System.out.println("This is a java Project and DB Connection code");
         con.close();
         st.close();
     }
