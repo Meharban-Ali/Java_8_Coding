@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Book {
+public class OtpGenerate {
     
     public static void main(String[] args) {
         

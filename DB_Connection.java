@@ -25,10 +25,10 @@ public class DB_Connection {
 
         //Statement
         PreparedStatement st = con.prepareStatement(query);
-        st.setString(1, "Rimsha");
-        st.setString(2, "rimsha123@gmail.com");
-        st.setString(3, "React Developer");
-        st.setString(4, "Mumbai");
+        st.setString(1, "Gulshaan");
+        st.setString(2, "gulshaan123@gmail.com");
+        st.setString(3, "Car Mechanic");
+        st.setString(4, "Banglore");
 
         int insertedData = st.executeUpdate();
         
