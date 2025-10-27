@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DB_Connection {
@@ -21,21 +22,34 @@ public class DB_Connection {
         System.out.println("Database Connected Successfully..");
 
          //Insert Query
-        String query = "insert into student(name, email, role, address) VALUES(?, ?, ?, ?)"; 
+        // String query = "insert into student(name, email, role, address) VALUES(?, ?, ?, ?)"; 
+        String query = "SELECT * FROM STUDENT";
 
         //Statement
         PreparedStatement st = con.prepareStatement(query);
-        st.setString(1, "Gayur");
-        st.setString(2, "gayur123@gmail.com");
-        st.setString(3, "React Develper");
-        st.setString(4, "Noida");
+        // st.setString(1, "Gayur");
+        // st.setString(2, "gayur123@gmail.com");
+        // st.setString(3, "React Develper");
+        // st.setString(4, "Noida");
 
-        int insertedData = st.executeUpdate();
+        // int insertedData = st.executeUpdate();
         
         //Execute Query
-        // ResultSet rs = st.executeQuery();
-        if(insertedData>0) {  
-            System.out.println("Student Details Saved Successfully");
+        ResultSet rs = st.executeQuery();
+        System.out.println("Student Details Fetched Successfully...");
+        System.out.println("----------------------------------------");
+        while(rs.next()) {  
+           int id= rs.getInt("id");
+           String name = rs.getString("name");
+           String email = rs.getString("email");
+           String role = rs.getString("role");
+           String address = rs.getString("address");
+           System.out.println("Id: "+id);
+           System.out.println("Name: "+name);
+           System.out.println("Email: "+email);
+           System.out.println("Role: "+role);
+           System.out.println("Address: "+address);
+           System.out.println("------------------------------------------");
         }
         System.out.println("This is a java Project and DB Connection code");
         con.close();
