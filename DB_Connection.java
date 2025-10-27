@@ -22,23 +22,24 @@ public class DB_Connection {
         System.out.println("Database Connected Successfully..");
 
          //Insert Query
-        String query = "insert into student(name, email, role, address) VALUES(?, ?, ?, ?)"; 
+        String query = "UPDATE student SET name = ?, email = ?, role = ?, address = ? where id = ?"; 
 
         //Statement
         PreparedStatement st = con.prepareStatement(query);
-        st.setString(1, "Chand Bi");
-        st.setString(2, "chandbi123@gmail.com");
-        st.setString(3, "Dotnet Developer");
+        st.setString(1, "Shane Alam");
+        st.setString(2, "shane123@gmail.com");
+        st.setString(3, "Python Developer");
         st.setString(4, "Hydrabad");
+        st.setInt(5, 7);
 
-        int insertedData = st.executeUpdate();
+        int updateRecords = st.executeUpdate();
         
         //Execute Query
         // ResultSet rs = st.executeQuery();
-        if (insertedData>0) {
-            System.out.println("Student records saved successfully");
+        if (updateRecords>0) {
+            System.out.println("Student records updated successfully");
         }else{
-            System.out.println("Student Records do not saved..");
+            System.out.println("Student Records not updated..");
         }
         con.close();
         st.close();
